@@ -8,7 +8,7 @@
 #include "fcl/distance.h"
 
 #include <iomanip>
-#include <utils.h>
+#include <utils_fcl.h>
 #include <broadphase_bruteforce_vct.h>
 
 

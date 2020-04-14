@@ -162,23 +162,23 @@ void FCLdistance2::broadphase_distance_vct()
     // }
 
     //////////////////////////////////////////////
-    std::vector<std::vector<fcl::DistanceData>> self_data3;
-    managerNuevo->distanceVct(self_data3, 300, fcl::defaultDistanceFunction);
+    // std::vector<std::vector<fcl::DistanceData>> self_data3;
+    // managerNuevo->distanceVct(self_data3, 300, fcl::defaultDistanceFunction);
 
-    for (int i = 0; i < self_data3.size(); ++i)
-    {
-        for (std::vector<fcl::DistanceData>::iterator it = self_data3[i].begin(); it != self_data3[i].end(); ++it)
-        {
-            std::cout << "fiter" << i << ": " << (it)->result.min_distance << std::endl;
-        }
-    }
+    // for (int i = 0; i < self_data3.size(); ++i)
+    // {
+    //     for (std::vector<fcl::DistanceData>::iterator it = self_data3[i].begin(); it != self_data3[i].end(); ++it)
+    //     {
+    //         std::cout << "fiter" << i << ": " << (it)->result.min_distance << std::endl;
+    //     }
+    // }
 
     ///////////////////////////////////////////////////
 
     std::vector<std::vector<fcl::DistanceData>> datum2;
     fcl::Timer timer;
     timer.start();
-    managerNuevo->distanceVct(managers[1], datum2, 300, fcl::defaultDistanceFunction);
+    managerNuevo->distanceVct_Plus(managers[1], datum2, 300, fcl::defaultDistanceFunction);
     timer.stop();
 
     std::cout << "size: " << datum2.size() << std::endl;
@@ -196,42 +196,28 @@ void FCLdistance2::broadphase_distance_vct()
 
     /////////////////////////////////////////////////////
 
-    std::vector<fcl::CollisionObject*> env2;
-    fcl::Ellipsoid *ellipsoid = new fcl::Ellipsoid(1, 2, 2);
-    env2.push_back(new fcl::CollisionObject(std::shared_ptr<fcl::CollisionGeometry>(ellipsoid),
-                                           fcl::Transform3f(fcl::Vec3f(1, 2, 1))));
+    // std::vector<fcl::CollisionObject*> env2;
+    // fcl::Ellipsoid *ellipsoid = new fcl::Ellipsoid(1, 2, 2);
+    // env2.push_back(new fcl::CollisionObject(std::shared_ptr<fcl::CollisionGeometry>(ellipsoid),
+    //                                        fcl::Transform3f(fcl::Vec3f(1, 2, 1))));
 
 
-    fcl::Matrix3f R;
-    R.setValue(1, 2, 3, 4, 5, 6, 7, 8, 9);
-    fcl::Vec3f T(1, 2, 3);
-    // fcl::Vec3f T2(5, 6, 7);
-    // fcl::Transform3f t1(R, T);
-    // fcl::Transform3f t2(R, T);
-    // t2.setTransform(R, T2);
-    fcl::Transform3f trsf =  env2[0]->getTransform();
-    env2[0]->setTranslation(T);
-    fcl::Transform3f trsf2 =  env2[0]->getTransform();
+    // fcl::Matrix3f R;
+    // R.setValue(1, 2, 3, 4, 5, 6, 7, 8, 9);
+    // fcl::Vec3f T(1, 2, 3);
+    // // fcl::Vec3f T2(5, 6, 7);
+    // // fcl::Transform3f t1(R, T);
+    // // fcl::Transform3f t2(R, T);
+    // // t2.setTransform(R, T2);
+    // fcl::Transform3f trsf =  env2[0]->getTransform();
+    // env2[0]->setTranslation(T);
+    // fcl::Transform3f trsf2 =  env2[0]->getTransform();
 
-    std::cout<<trsf.getTranslation()<<std::endl;
-    std::cout<<trsf2.getTranslation()<<std::endl;
+    // std::cout<<trsf.getTranslation()<<std::endl;
+    // std::cout<<trsf2.getTranslation()<<std::endl;
 
     ///////////////////////////////////////////////////C
-    std::vector<rct::Status> links;
-    rct::Status link1;
-    rct::Status link2;
-    rct::Status link3;
-    link1.frame.pos(0) = 10;
-    link2.frame.pos(1) = 20;
-    link3.frame.pos(2) = 30;
-    links.push_back(link1);
-    links.push_back(link2);
-    links.push_back(link3);
-    managerNuevo->updateVct(links);
-    std::cout<<"Laxana poulaw"<<std::endl;
-    std::cout<<env[0]->getTranslation()<<std::endl;
-    std::cout<<env[1]->getTranslation()<<std::endl;
-    std::cout<<env[2]->getTranslation()<<std::endl;
+
     
 
 

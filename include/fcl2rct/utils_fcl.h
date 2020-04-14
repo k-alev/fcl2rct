@@ -145,6 +145,8 @@ struct DistanceData
   /// @brief Whether the distance iteration can stop
   bool done;
 
+  std::pair<fcl::Vec3f, fcl::Vec3f> distVctWF; //distance vector expressed in world frame
+
 };
 
 /// @brief Continuous collision data stores the continuous collision request and result given the continuous collision algorithm.

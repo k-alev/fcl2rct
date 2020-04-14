@@ -11,7 +11,7 @@ find_package(Eigen3 REQUIRED)
 add_library(fcl2rct_lib STATIC
   src/broadphase_bruteforce_vct.cpp
   src/FCLdistance2.cpp
-  src/utils.cpp
+  src/utils_fcl.cpp
 	)
 
 add_executable(test_fcl
